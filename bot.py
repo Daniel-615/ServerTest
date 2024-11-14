@@ -16,18 +16,18 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 async def on_ready():
     print(f'Bot {bot.user} ha iniciado sesión.')
 
-    # Aquí buscamos un canal donde el bot puede enviar el mensaje
-    # Puedes reemplazar 'nombre-del-canal' con el nombre del canal que desees
     channel = discord.utils.get(bot.get_all_channels(), name='backups')
 
     if channel is not None:
         file_path = '/workspaces/ServerTest/respaldos/world_respaldo.zip'
+        config_path='/workspaces/ServerTest/respaldos/plugins_respaldo.zip'
 
         # Verifica si el archivo existe antes de enviarlo
         if os.path.exists(file_path):
             # Obtener la fecha y hora actuales
             current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             await channel.send(f"Respaldo enviado a las: {current_time}", file=discord.File(file_path))
+            await channel.send(f"Respaldo enviado a las: {current_time}", file=discord.File(config_path))
         else:
             await channel.send("El archivo de respaldo no existe o la ruta es incorrecta.")
     else:
