@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 from datetime import datetime  # Importar datetime para obtener la fecha y hora
+import dotenv
 
 # Configurar los intents
 intents = discord.Intents.default()
@@ -34,4 +35,4 @@ async def on_ready():
         print("No se encontró el canal.")
 
 # Ejecutar el bot
-bot.run('MTI5MzMyNDYxNTgxMjM4NzAzNw.GXqDcX.bh8onHBCAFbNr6XkD6ROcZxt7HB_qO9qOyzHHY')
+bot.run(os.getenv('DISCORD_TOKEN'))
