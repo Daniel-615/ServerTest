@@ -2,8 +2,9 @@ import discord
 from discord.ext import commands
 import os
 from datetime import datetime  # Importar datetime para obtener la fecha y hora
-import dotenv
+from dotenv import load_dotenv
 
+load_dotenv()
 # Configurar los intents
 intents = discord.Intents.default()
 intents.messages = True  # Activa los intents de mensajes
